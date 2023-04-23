@@ -18,6 +18,7 @@ public class MoneyTest {
     void DollarEqualityTest(){
         Assertions.assertEquals(new Dollar(5), new Dollar(5));
         Assertions.assertNotEquals(new Dollar(5), new Dollar(6));
+        Assertions.assertNotEquals(new Dollar(1),new Dinar(1));
     }
 
 
