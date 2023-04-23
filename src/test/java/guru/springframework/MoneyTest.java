@@ -6,10 +6,19 @@ import org.junit.jupiter.api.Test;
 public class MoneyTest {
 
     @Test
-    void multiplicationTest(){
+    void DollarMultiplicationTest(){
         Dollar five = new Dollar(5);
-        five.times(2);
-        Assertions.assertEquals(five.amount,10);
+        Dollar product = five.times(2);
+        Assertions.assertEquals(10,product);
+        product = five.times(3);
+        Assertions.assertEquals(15,product);
     }
+
+    @Test
+    void DollarEqualityTest(){
+        Assertions.assertEquals(new Dollar(5), new Dollar(5));
+        Assertions.assertNotEquals(new Dollar(5), new Dollar(6));
+    }
+
 
 }
