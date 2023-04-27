@@ -3,7 +3,7 @@ package guru.springframework;
 public class Dollar extends Money{
 
     public Dollar(int amount) {
-        this.amount = amount;
+        super(amount,"USD");
     }
 
     public Dollar times(int multiplier) {

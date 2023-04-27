@@ -1,40 +1,42 @@
 package guru.springframework;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MoneyTest {
 
     @Test
     void DollarMultiplicationTest(){
-        Dollar five = new Dollar(5);
-        Dollar product = five.times(2);
-        Assertions.assertEquals(new Dollar(10),product);
-        product = five.times(3);
-        Assertions.assertEquals(new Dollar(15),product);
+        Money five = Money.dollar(5);
+        assertEquals(Money.dollar(10), five.times(2));
+        assertEquals(Money.dollar(15), five.times(3));
     }
 
     @Test
     void DollarEqualityTest(){
-        Assertions.assertEquals(new Dollar(5), new Dollar(5));
-        Assertions.assertNotEquals(new Dollar(5), new Dollar(6));
-        Assertions.assertNotEquals(new Dollar(1),new Dinar(1));
+        assertEquals(Money.dollar(5), Money.dollar(5));
+        assertNotEquals(Money.dollar(5), Money.dollar(8));
     }
 
 
     @Test
     void DinarMultiplicationTest(){
-        Dinar five = new Dinar(5);
-        Dinar product = five.times(2);
-        Assertions.assertEquals(new Dinar(10),product);
-        product = five.times(3);
-        Assertions.assertEquals(new Dinar(15),product);
+        Money five = Money.dinar(5);
+        assertEquals(Money.dinar(10), five.times(2));
+        assertEquals(Money.dinar(15), five.times(3));
     }
 
     @Test
     void DinarEqualityTest(){
-        Assertions.assertEquals(new Dinar(5), new Dinar(5));
-        Assertions.assertNotEquals(new Dinar(5), new Dinar(6));
+        assertEquals(Money.dinar(5), Money.dinar(5));
+        assertNotEquals(Money.dinar(5), Money.dinar(8));
+    }
+
+    @Test
+    void currencyTest() {
+        assertEquals("TND",Money.dinar(1).currency());
+        assertEquals("USD",Money.dollar(1).currency());
     }
 
 }
