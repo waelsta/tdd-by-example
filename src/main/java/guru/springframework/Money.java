@@ -11,11 +11,11 @@ public class Money {
     }
 
     public static Money dollar(int amount) {
-        return new Dollar(amount);
+        return new Money(amount,"USD");
     }
 
     public static Money dinar(int amount) {
-        return new Dinar(amount);
+        return new Money(amount,"TND");
     }
 
     public String currency(){
@@ -29,7 +29,7 @@ public class Money {
 
     //since times method might return different types of currencies we will make it abstract and implement it in child classes
     public Money times(int multiplier){
-        return new Money(multiplier,this.currency());
+        return new Money(multiplier * amount,this.currency());
     }
 
     @Override
